@@ -134,3 +134,62 @@ select last_name, salary, department_id
 from employees
 where (salary between 5000 and 12000) and 
     department_id in (20, 50);  
+    
+--이름에 a와 e가 포함된 사원들의 이름을 조회하라.
+select last_name
+from employees
+where last_name like '%a%' and
+    last_name like '%e%';
+    
+select last_name, job_id
+from employees
+where job_id  not in ('IT_PROG', 'SA_REP');
+
+select last_neme, salary
+from employees
+where salary not between 10000 and 15000;
+
+select last_name, job_id
+from employees
+where job_id not like '%IT%';
+
+select last_name, job_id
+from employees
+where commission_pct is not null;
+
+select last_name, salary
+from employees
+where not (manager_id is null and salary >= 20000);
+
+--직업이 영업이다. 그리고, 월급이 $2500, $3500가 아니다.
+-- 위 사원들의 이름, 직업, 월급을 조회하라.
+select last_name, job_id, salary
+from employees
+where job_id like 'SA%' and
+    salary not in (2500, 3500);
+
+select last_name, department_id
+from employees
+order by department_id;
+
+select last_name, department_id
+from employees
+order by department_id desc;
+
+select last_name, department_id
+from employees
+order by 2;
+
+select last_name, department_id dept_id
+from employees
+order by dept_id;
+
+select last_name, hire_date
+from employees
+where department_id = 100
+order by hire_date;
+
+select last_name, department_id, salary
+from employees
+where department_id > 80
+order by department_id asc, salary desc;
