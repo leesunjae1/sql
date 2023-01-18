@@ -69,6 +69,6 @@ select last_name || (salary * 12)
 from employees;
 
 --사원들의 '이름, 직업'(Emp and Title) 조회하라
-
 select last_name || ',' || job_id "Emp and Title"
 from employees;
+
