@@ -145,7 +145,7 @@ select last_name, last_day(hire_date)
 from employees
 where months_between(sysdate, hire_date) >= 12 * 20;
 
--- 사원들의 이름, 월급 그래프를 조회하라
+--사원들의 이름, 월급 그래프를 조회하라
 --그래프는 $1000당 * 하나를 표시한다
 select last_name, rpad(' ', salary / 1000 + 1, '*') sal
 from employees
