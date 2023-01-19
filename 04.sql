@@ -148,7 +148,7 @@ where department_id = 80;
 select decode(salary, 'a', 1)
 from employees;
  
-select decode(salary,'a', 1, 0)
+select decode(ettretret,'a', 1, 0)
 from employees;
 
 select decode(job_id, 1, 1)
@@ -216,8 +216,9 @@ order by case day
 -- 2005년 후에 입사한 사원들에게 10원만 상품권을 지급한다
 -- 사원들의 이름, 입사일, 상품권 금액을 조회하라
 select last_name, hire_date, 
-        case when hire_date < '2005' then 1000000
-             when hire_date  >= '2005' then 100000
-             end
-from employees;
-        
+        case when hire_date <= '2005/12/31' then '100만원'
+             else '10만원' end gift    
+from employees
+order by gift, hire_date;
+
+
