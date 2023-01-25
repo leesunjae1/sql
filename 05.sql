@@ -118,7 +118,7 @@ from employees;
 -- 2001년, 2002년, 2003년도별 입사자 수를 조회하라
 select to_char(hire_date,'yyyy') hire_year, count(*) emp_cnt
 from employees
-where to_char(hire_date,'yyyy')in (2001, 2002, 2003)
+where to_char(hire_date,'yyyy') in (2001, 2002, 2003)
 group by to_char(hire_date,'yyyy')
 order by hire_year;
 

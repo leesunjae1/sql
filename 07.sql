@@ -144,7 +144,30 @@ from employees
 where employee_id in (select manager_id
                         from employees);
                         
-select last_name 
+select last_name --버그
 from employees
 where employee_id not in (select manager_id
-                        from employees);                    
+                        from employees); 
+
+-- 위 문장을 all 연산자로 refactoring하라                        
+select last_name 
+from employees
+where employee_id <>all (select manager_id
+                        from employees);
+        
+select count(*)
+from departments;
+
+select count(*)
+from departments d 
+where exists (select *
+                from employees e
+                where e.department_id = d.department_id);
+
+-- 직업을 바꾼 적이 있는 사원들의 사번, 이름, 직업을 조회하라
+select employee_id, last_name, job_id
+from employees e
+where exists (select *
+                from job_history j
+                where e.employee_id = j.employee_id);
+                
