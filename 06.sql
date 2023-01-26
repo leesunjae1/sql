@@ -176,4 +176,3 @@ where e.department_id(+) = d.department_id(+);
 select worker.last_name || 'works for ' || manager.last_name
 from employees worker, employees manager
 where worker.manager_id = manager.employee_id;
-
