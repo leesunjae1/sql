@@ -1,6 +1,5 @@
 -- view
 create view empvu80 as
-
     select employee_id, last_name, department_id
     from employees
     where department_id = 80;
@@ -122,3 +121,27 @@ on employees(last_name);
 select last_name, rowid
 from employees;
 
+select last_name
+from employees
+where rowid ='AAAEAbAAEAAAADNAAr';
+
+select index_name, index_type, table_owner, table_name
+from user_indexes;
+
+-- DEPT 테이블의 DEPARTMENT_NAME 에 대한 index를 만들어라
+create index dept_departmentname_idx
+on dept(department_name);
+
+-- synonym
+drop synonym team;
+
+create synonym team
+for departments;
+
+select * from team;
+
+-- EMPLOYEES 테이블에 EMPS synonym을 만들어라
+create synonym emps
+for employees;
+
+select * from emps;
